@@ -1,11 +1,14 @@
 #!/usr/bin/python3 
-
+ 
 import os
 
-print("[+] Input format: XXX.XXX.X.X \n")
-IP=input()
-print("\n[+] Running ping sweeper on "+ IP+"\n")
-IP=IP[:10]
+IP=input("[+] Enter the Host IP Address:\t")
+print("[+] Starting Ping Sweeper on "+IP+"\n") 
+dot=IP.rfind(".")
+IP=IP[0:dot+1] 
+
+"""Pings the Network"""
+
 for i in range(1,255):
 	host=IP+str(i)
 	response=os.system("ping -c 1 -w 1 "+host+" >/dev/null")
